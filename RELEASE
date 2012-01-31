@@ -1,0 +1,28 @@
+1) find . -type f | egrep -v '.svn|RELEASE' | \
+       xargs perl -pi -e 's,0.07-dev,0.07,g'
+
+   Update Changes - add the date for 0.07 entry
+
+   svn ci -m "prep 0.07 release"
+
+2) make distclean
+
+3) perl Makefile.PL
+
+4) make all test install
+
+5) make dist clean
+
+6) svn copy -m "tag 0.07" \
+       https://svn.perl.org/modperl-modules/Apache2-DebugFilter/trunk \
+       https://svn.perl.org/modperl-modules/Apache2-DebugFilter/tags/rel_0.07
+
+7) find . -type f | egrep -v '.svn|Changes|RELEASE' | \
+       xargs perl -pi -e 's,0.07,0.08-dev,g'
+
+8) Add an entry to Changes for 0.08-dev
+
+9) svn ci -m "roll on to 0.08-dev"
+
+10) forward the PAUSE email with MD5 sum and Changes to 
+    modperl@perl.apache.org.

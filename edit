@@ -1,0 +1,8 @@
+xemacs \
+lib/Apache/Filter/HTTPHeadersFixup.pm \
+t/TEST.PL \
+t/conf/extra.conf.in \
+t/manip/in_append.t \
+t/response/TestManip/in_append.pm \
+Makefile.PL \
+&
